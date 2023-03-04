@@ -15,14 +15,14 @@
     
 
     <div class="row header-container d-flex justify-content-center" id="header1">
-        <header>Weather Dashboard</header>
+        <header class="text-center">Weather Dashboard</header>
     </div>
 
 
 
     <div class="main-container">
         <div class="row d-flex">
-            <div class="col-lg-3 search-container bg-success">
+            <div class="col-lg-3 search-container">
                 Search for a city:
 
                 <form class="navBar-form">
@@ -35,12 +35,12 @@
             </div>
 
 
-            <div class="col weather-container d-flex bg-primary flex-wrap ">
+            <div class="col weather-container d-flex flex-wrap ">
 
-                <div class="main-weather-card d-inline-flex d-block justify-content-center w-100 bg-warning"></div>
+                <div class="main-weather-card d-inline-flex d-block justify-content-center w-100"></div>
 
 
-                <div class="weather-cards bg-danger d-block w-100"></div>
+                <div class= "d-block w-100 d-flex" id="weather-cards"></div>
 
             </div>
         </div>
@@ -55,7 +55,7 @@
 
 
 
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
 integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
 crossorigin="anonymous"></script>
