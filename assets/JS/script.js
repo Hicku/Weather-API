@@ -3,13 +3,39 @@ const apiUrl = "https://api.openweathermap.org/data/2.5/weather";
 const searchButton = $("#search-button");
 const searchInput = $("#search-input");
 const weatherCards = $("#weather-cards");
+let previousCities = [];
+
+
+// Search history
+function loadPreviousCities() {
+    const previousCitiesJson = localStorage.getItem("previousCities");
+    if (previousCitiesJson) {
+        previousCities = JSON.parse(previousCitiesJson);
+        const previousCitiesList = $("#previous-cities");
+        previousCitiesList.empty();
+        for (const previousCity of previousCities) {
+            const previousCityItem = $('<li class="historyText btn btn-success">');
+            previousCityItem.text(previousCity);
+            previousCitiesList.append(previousCityItem);
+        }
+    }
+}
 
 
 $(document).ready(function () {
+    loadPreviousCities();
+
+   
+    $("#previous-cities").on("click", "li", function () {
+        searchInput.val($(this).text().trim());
+        searchButton.click();
+    });
+
 
     
 
     searchButton.on("click", function () {
+        $(".main-weather-card").empty();
 
         const city = searchInput.val();
         const url = `${apiUrl}?q=${city}&appid=${apiKey}`;
@@ -68,9 +94,18 @@ $(document).ready(function () {
   `);
                         }
 
-                        // add the forecast cards to the HTML
+                        
                         weatherCards.html("<h4>Forecast:</h4>");
                         forecastCards.forEach(card => weatherCards.append(card));
+
+                            //  Search history
+
+                        
+                        previousCities.unshift(name);
+                        previousCities = previousCities.slice(0, 5);
+                        localStorage.setItem("previousCities", JSON.stringify(previousCities));
+
+                        
                     })
                     .catch(error => console.log(error));
 
