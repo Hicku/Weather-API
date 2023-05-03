@@ -25,6 +25,12 @@ function loadPreviousCities() {
 $(document).ready(function () {
     loadPreviousCities();
 
+    searchInput.on("keydown", function(event) {
+        if (event.keyCode === 13) { // Check if Enter key was pressed
+            event.preventDefault(); // Prevent default form submission
+            searchButton.click(); // Trigger click event on search button
+        }
+    });
    
     $("#previous-cities").on("click", "li", function () {
         searchInput.val($(this).text().trim());
@@ -102,6 +108,7 @@ $(document).ready(function () {
 
                         
                         previousCities.unshift(name);
+                        previousCities = [...new Set(previousCities)];
                         previousCities = previousCities.slice(0, 5);
                         localStorage.setItem("previousCities", JSON.stringify(previousCities));
 
