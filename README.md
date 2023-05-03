@@ -38,3 +38,10 @@ If you have any questions, please feel free to contact me:
 
 - GitHub: [hicku72](https://github.com/hicku72)
 - Email: aaron.hickman201@gmail.com
+
+https://hicku.github.io/Weather-API/
+
+![image](https://user-images.githubusercontent.com/113357349/236035478-30ed62be-7cb5-4c47-b432-568e1fed49f6.png)
+
+![image](https://user-images.githubusercontent.com/113357349/236035772-0b15cfa0-d9f2-4c4c-8ee6-d4edd0d4c59a.png)
+
